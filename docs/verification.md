@@ -16,7 +16,7 @@ API tests use HTTPX's ASGI transport with real route handling, validation, ETL a
 
 The API tests uncovered a real defect: GET `/api/dashboard?period=0000-01` raised an unhandled error even though POST correctly rejected that period. A failing regression test reproduced it; the dashboard now translates service validation errors into HTTP 422, and the regression passes. Other tests characterize existing public behavior with independently worked financial answers.
 
-Python compilation, JavaScript syntax and `git diff --check` passed. CI now installs dependencies, runs the suite and checks syntax; execution on GitHub remains unverified.
+Python compilation, JavaScript syntax and `git diff --check` passed. GitHub Actions also completed successfully for uploaded code revision `5495391101942bdc6a1359f66a42632297ff3053`: dependency installation, all 43 tests, Python compilation and JavaScript syntax checks passed. See the [successful CI run](https://github.com/AmnonTamsut/peopleops-control/actions/runs/37454966028). Documentation-only updates do not require rerunning the unchanged code.
 
 ## Earlier manual checks
 
