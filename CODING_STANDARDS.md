@@ -1,0 +1,3 @@
+# Coding standards
+
+Use small modules with explicit public interfaces and type hints. Keep monetary calculations in integer cents or Decimal with half-up rounding; never float for payroll calculations. Parameterize SQL. Bound network retries and use timeouts. Never log credentials or employee-sensitive raw payloads. Preserve run audit evidence and prior published data on failure. Use deterministic synthetic fixtures. Validate external inputs and display source strings as text, never HTML or spreadsheet formulas. Test through the public interfaces documented in docs/spec.md. Keep SQLite local-demo and SQL Server integration claims distinct.

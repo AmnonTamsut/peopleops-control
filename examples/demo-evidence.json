@@ -1,0 +1,862 @@
+{
+  "period": "2026-09",
+  "rule_version": "simplified-gross-v1",
+  "metrics": {
+    "headcount": 67,
+    "gross_cents": 113727738,
+    "expected_cents": 113541238,
+    "variance_cents": 186500,
+    "overtime_minutes": 19830,
+    "quality_score": 90.3,
+    "published_run_id": "e15cd304-02f8-464a-b3e0-1c552abb210b"
+  },
+  "departments": [
+    {
+      "name": "Claims",
+      "headcount": 12,
+      "gross_cents": 20963803,
+      "variance_cents": 0
+    },
+    {
+      "name": "Customer Service",
+      "headcount": 10,
+      "gross_cents": 16935033,
+      "variance_cents": 0
+    },
+    {
+      "name": "Finance",
+      "headcount": 12,
+      "gross_cents": 19664012,
+      "variance_cents": 0
+    },
+    {
+      "name": "Human Resources",
+      "headcount": 12,
+      "gross_cents": 20653055,
+      "variance_cents": 186500
+    },
+    {
+      "name": "Operations",
+      "headcount": 10,
+      "gross_cents": 16312498,
+      "variance_cents": 0
+    },
+    {
+      "name": "Technology",
+      "headcount": 11,
+      "gross_cents": 19199337,
+      "variance_cents": 0
+    }
+  ],
+  "findings": [
+    {
+      "id": "F-001",
+      "employee_id": "EMP-999",
+      "employee_name": "Unknown employee",
+      "department": "Unassigned",
+      "rule": "unknown_employee",
+      "severity": "critical",
+      "message": "attendance references an employee absent from the HR roster.",
+      "owner": "Time & Attendance",
+      "remediation": "Correct the attendance source record and rerun this month; do not edit stored run evidence.",
+      "impact_cents": 0
+    },
+    {
+      "id": "F-002",
+      "employee_id": "EMP-004",
+      "employee_name": "Demo Employee 004",
+      "department": "Customer Service",
+      "rule": "duplicate_source_key",
+      "severity": "critical",
+      "message": "Duplicate employee key in payroll source.",
+      "owner": "Data Integration",
+      "remediation": "Resolve duplicate payroll keys before rerunning.",
+      "impact_cents": 0
+    },
+    {
+      "id": "F-003",
+      "employee_id": "EMP-010",
+      "employee_name": "Demo Employee 010",
+      "department": "Customer Service",
+      "rule": "invalid_amount",
+      "severity": "critical",
+      "message": "gross_cents must be a nonnegative integer within the source contract limit.",
+      "owner": "Payroll",
+      "remediation": "Correct the payroll source record and rerun this month; do not edit stored run evidence.",
+      "impact_cents": 0
+    },
+    {
+      "id": "F-004",
+      "employee_id": "EMP-018",
+      "employee_name": "Demo Employee 018",
+      "department": "Operations",
+      "rule": "missing_attendance",
+      "severity": "critical",
+      "message": "Active employee is missing a attendance record.",
+      "owner": "Time & Attendance",
+      "remediation": "Restore the attendance record for 2026-09 and rerun reconciliation.",
+      "impact_cents": 0
+    },
+    {
+      "id": "F-005",
+      "employee_id": "EMP-029",
+      "employee_name": "Demo Employee 029",
+      "department": "Technology",
+      "rule": "missing_payroll",
+      "severity": "critical",
+      "message": "Active employee is missing a payroll record.",
+      "owner": "Payroll",
+      "remediation": "Restore the payroll record for 2026-09 and rerun reconciliation.",
+      "impact_cents": 0
+    },
+    {
+      "id": "F-006",
+      "employee_id": "EMP-072",
+      "employee_name": "Demo Employee 072",
+      "department": "Operations",
+      "rule": "inactive_employee_payment",
+      "severity": "critical",
+      "message": "An inactive employee has reported gross pay.",
+      "owner": "HR Operations + Payroll",
+      "remediation": "Confirm employment dates or reverse the source payment, then rerun.",
+      "impact_cents": 1436490
+    },
+    {
+      "id": "F-007",
+      "employee_id": "EMP-007",
+      "employee_name": "Demo Employee 007",
+      "department": "Human Resources",
+      "rule": "gross_difference",
+      "severity": "critical",
+      "message": "Reported gross differs from the simplified expected amount by more than \u20aa100.",
+      "owner": "Payroll",
+      "remediation": "Verify salary and overtime inputs with HR; reconcile the source gross amount and rerun.",
+      "impact_cents": 186500
+    },
+    {
+      "id": "F-008",
+      "employee_id": "EMP-033",
+      "employee_name": "Demo Employee 033",
+      "department": "Claims",
+      "rule": "overtime_threshold",
+      "severity": "warning",
+      "message": "Overtime exceeds the review threshold of 30 hours.",
+      "owner": "Department Manager",
+      "remediation": "Review and document authorization for this employee's overtime.",
+      "impact_cents": 0
+    }
+  ],
+  "records": [
+    {
+      "employee_id": "EMP-001",
+      "employee_name": "Demo Employee 001",
+      "department": "Human Resources",
+      "expected_cents": 1015610,
+      "gross_cents": 1015610,
+      "variance_cents": 0,
+      "overtime_minutes": 390,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-002",
+      "employee_name": "Demo Employee 002",
+      "department": "Finance",
+      "expected_cents": 1049716,
+      "gross_cents": 1049716,
+      "variance_cents": 0,
+      "overtime_minutes": 30,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-003",
+      "employee_name": "Demo Employee 003",
+      "department": "Claims",
+      "expected_cents": 1149390,
+      "gross_cents": 1149390,
+      "variance_cents": 0,
+      "overtime_minutes": 240,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-005",
+      "employee_name": "Demo Employee 005",
+      "department": "Technology",
+      "expected_cents": 1278258,
+      "gross_cents": 1278258,
+      "variance_cents": 0,
+      "overtime_minutes": 90,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-006",
+      "employee_name": "Demo Employee 006",
+      "department": "Operations",
+      "expected_cents": 1383581,
+      "gross_cents": 1383581,
+      "variance_cents": 0,
+      "overtime_minutes": 300,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-007",
+      "employee_name": "Demo Employee 007",
+      "department": "Human Resources",
+      "expected_cents": 1492344,
+      "gross_cents": 1678844,
+      "variance_cents": 186500,
+      "overtime_minutes": 510,
+      "status": "critical"
+    },
+    {
+      "employee_id": "EMP-008",
+      "employee_name": "Demo Employee 008",
+      "department": "Finance",
+      "expected_cents": 1509747,
+      "gross_cents": 1509747,
+      "variance_cents": 0,
+      "overtime_minutes": 150,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-009",
+      "employee_name": "Demo Employee 009",
+      "department": "Claims",
+      "expected_cents": 1620720,
+      "gross_cents": 1620720,
+      "variance_cents": 0,
+      "overtime_minutes": 360,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-011",
+      "employee_name": "Demo Employee 011",
+      "department": "Technology",
+      "expected_cents": 1744184,
+      "gross_cents": 1744184,
+      "variance_cents": 0,
+      "overtime_minutes": 210,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-012",
+      "employee_name": "Demo Employee 012",
+      "department": "Operations",
+      "expected_cents": 1860806,
+      "gross_cents": 1860806,
+      "variance_cents": 0,
+      "overtime_minutes": 420,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-013",
+      "employee_name": "Demo Employee 013",
+      "department": "Human Resources",
+      "expected_cents": 1862735,
+      "gross_cents": 1862735,
+      "variance_cents": 0,
+      "overtime_minutes": 60,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-014",
+      "employee_name": "Demo Employee 014",
+      "department": "Finance",
+      "expected_cents": 1981568,
+      "gross_cents": 1981568,
+      "variance_cents": 0,
+      "overtime_minutes": 270,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-015",
+      "employee_name": "Demo Employee 015",
+      "department": "Claims",
+      "expected_cents": 2103840,
+      "gross_cents": 2103840,
+      "variance_cents": 0,
+      "overtime_minutes": 480,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-016",
+      "employee_name": "Demo Employee 016",
+      "department": "Customer Service",
+      "expected_cents": 2097418,
+      "gross_cents": 2097418,
+      "variance_cents": 0,
+      "overtime_minutes": 120,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-017",
+      "employee_name": "Demo Employee 017",
+      "department": "Technology",
+      "expected_cents": 2221900,
+      "gross_cents": 2221900,
+      "variance_cents": 0,
+      "overtime_minutes": 330,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-019",
+      "employee_name": "Demo Employee 019",
+      "department": "Human Resources",
+      "expected_cents": 2335048,
+      "gross_cents": 2335048,
+      "variance_cents": 0,
+      "overtime_minutes": 180,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-020",
+      "employee_name": "Demo Employee 020",
+      "department": "Finance",
+      "expected_cents": 2465179,
+      "gross_cents": 2465179,
+      "variance_cents": 0,
+      "overtime_minutes": 390,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-021",
+      "employee_name": "Demo Employee 021",
+      "department": "Claims",
+      "expected_cents": 2443283,
+      "gross_cents": 2443283,
+      "variance_cents": 0,
+      "overtime_minutes": 30,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-022",
+      "employee_name": "Demo Employee 022",
+      "department": "Customer Service",
+      "expected_cents": 932615,
+      "gross_cents": 932615,
+      "variance_cents": 0,
+      "overtime_minutes": 240,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-023",
+      "employee_name": "Demo Employee 023",
+      "department": "Technology",
+      "expected_cents": 1030763,
+      "gross_cents": 1030763,
+      "variance_cents": 0,
+      "overtime_minutes": 450,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-024",
+      "employee_name": "Demo Employee 024",
+      "department": "Operations",
+      "expected_cents": 1065029,
+      "gross_cents": 1065029,
+      "variance_cents": 0,
+      "overtime_minutes": 90,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-025",
+      "employee_name": "Demo Employee 025",
+      "department": "Human Resources",
+      "expected_cents": 1165388,
+      "gross_cents": 1165388,
+      "variance_cents": 0,
+      "overtime_minutes": 300,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-026",
+      "employee_name": "Demo Employee 026",
+      "department": "Finance",
+      "expected_cents": 1269184,
+      "gross_cents": 1269184,
+      "variance_cents": 0,
+      "overtime_minutes": 510,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-027",
+      "employee_name": "Demo Employee 027",
+      "department": "Claims",
+      "expected_cents": 1295100,
+      "gross_cents": 1295100,
+      "variance_cents": 0,
+      "overtime_minutes": 150,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-028",
+      "employee_name": "Demo Employee 028",
+      "department": "Customer Service",
+      "expected_cents": 1401108,
+      "gross_cents": 1401108,
+      "variance_cents": 0,
+      "overtime_minutes": 360,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-030",
+      "employee_name": "Demo Employee 030",
+      "department": "Operations",
+      "expected_cents": 1528118,
+      "gross_cents": 1528118,
+      "variance_cents": 0,
+      "overtime_minutes": 210,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-031",
+      "employee_name": "Demo Employee 031",
+      "department": "Human Resources",
+      "expected_cents": 1639775,
+      "gross_cents": 1639775,
+      "variance_cents": 0,
+      "overtime_minutes": 420,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-032",
+      "employee_name": "Demo Employee 032",
+      "department": "Finance",
+      "expected_cents": 1650216,
+      "gross_cents": 1650216,
+      "variance_cents": 0,
+      "overtime_minutes": 60,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-033",
+      "employee_name": "Demo Employee 033",
+      "department": "Claims",
+      "expected_cents": 2138078,
+      "gross_cents": 2138078,
+      "variance_cents": 0,
+      "overtime_minutes": 2220,
+      "status": "warning"
+    },
+    {
+      "employee_id": "EMP-034",
+      "employee_name": "Demo Employee 034",
+      "department": "Customer Service",
+      "expected_cents": 1881390,
+      "gross_cents": 1881390,
+      "variance_cents": 0,
+      "overtime_minutes": 480,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-035",
+      "employee_name": "Demo Employee 035",
+      "department": "Technology",
+      "expected_cents": 1883480,
+      "gross_cents": 1883480,
+      "variance_cents": 0,
+      "overtime_minutes": 120,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-036",
+      "employee_name": "Demo Employee 036",
+      "department": "Operations",
+      "expected_cents": 2002997,
+      "gross_cents": 2002997,
+      "variance_cents": 0,
+      "overtime_minutes": 330,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-037",
+      "employee_name": "Demo Employee 037",
+      "department": "Human Resources",
+      "expected_cents": 2125953,
+      "gross_cents": 2125953,
+      "variance_cents": 0,
+      "overtime_minutes": 540,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-038",
+      "employee_name": "Demo Employee 038",
+      "department": "Finance",
+      "expected_cents": 2119691,
+      "gross_cents": 2119691,
+      "variance_cents": 0,
+      "overtime_minutes": 180,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-039",
+      "employee_name": "Demo Employee 039",
+      "department": "Claims",
+      "expected_cents": 2244858,
+      "gross_cents": 2244858,
+      "variance_cents": 0,
+      "overtime_minutes": 390,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-040",
+      "employee_name": "Demo Employee 040",
+      "department": "Customer Service",
+      "expected_cents": 2231473,
+      "gross_cents": 2231473,
+      "variance_cents": 0,
+      "overtime_minutes": 30,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-041",
+      "employee_name": "Demo Employee 041",
+      "department": "Technology",
+      "expected_cents": 2358850,
+      "gross_cents": 2358850,
+      "variance_cents": 0,
+      "overtime_minutes": 240,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-042",
+      "employee_name": "Demo Employee 042",
+      "department": "Operations",
+      "expected_cents": 2489666,
+      "gross_cents": 2489666,
+      "variance_cents": 0,
+      "overtime_minutes": 450,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-043",
+      "employee_name": "Demo Employee 043",
+      "department": "Human Resources",
+      "expected_cents": 2467930,
+      "gross_cents": 2467930,
+      "variance_cents": 0,
+      "overtime_minutes": 90,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-044",
+      "employee_name": "Demo Employee 044",
+      "department": "Finance",
+      "expected_cents": 947194,
+      "gross_cents": 947194,
+      "variance_cents": 0,
+      "overtime_minutes": 300,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-045",
+      "employee_name": "Demo Employee 045",
+      "department": "Claims",
+      "expected_cents": 1046025,
+      "gross_cents": 1046025,
+      "variance_cents": 0,
+      "overtime_minutes": 510,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-046",
+      "employee_name": "Demo Employee 046",
+      "department": "Customer Service",
+      "expected_cents": 1080453,
+      "gross_cents": 1080453,
+      "variance_cents": 0,
+      "overtime_minutes": 150,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-047",
+      "employee_name": "Demo Employee 047",
+      "department": "Technology",
+      "expected_cents": 1181495,
+      "gross_cents": 1181495,
+      "variance_cents": 0,
+      "overtime_minutes": 360,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-048",
+      "employee_name": "Demo Employee 048",
+      "department": "Operations",
+      "expected_cents": 1208800,
+      "gross_cents": 1208800,
+      "variance_cents": 0,
+      "overtime_minutes": 0,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-049",
+      "employee_name": "Demo Employee 049",
+      "department": "Human Resources",
+      "expected_cents": 1312053,
+      "gross_cents": 1312053,
+      "variance_cents": 0,
+      "overtime_minutes": 210,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-050",
+      "employee_name": "Demo Employee 050",
+      "department": "Finance",
+      "expected_cents": 1418744,
+      "gross_cents": 1418744,
+      "variance_cents": 0,
+      "overtime_minutes": 420,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-051",
+      "employee_name": "Demo Employee 051",
+      "department": "Claims",
+      "expected_cents": 1437698,
+      "gross_cents": 1437698,
+      "variance_cents": 0,
+      "overtime_minutes": 60,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-052",
+      "employee_name": "Demo Employee 052",
+      "department": "Customer Service",
+      "expected_cents": 1546599,
+      "gross_cents": 1546599,
+      "variance_cents": 0,
+      "overtime_minutes": 270,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-053",
+      "employee_name": "Demo Employee 053",
+      "department": "Technology",
+      "expected_cents": 1658940,
+      "gross_cents": 1658940,
+      "variance_cents": 0,
+      "overtime_minutes": 480,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-054",
+      "employee_name": "Demo Employee 054",
+      "department": "Operations",
+      "expected_cents": 1669543,
+      "gross_cents": 1669543,
+      "variance_cents": 0,
+      "overtime_minutes": 120,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-055",
+      "employee_name": "Demo Employee 055",
+      "department": "Human Resources",
+      "expected_cents": 1784094,
+      "gross_cents": 1784094,
+      "variance_cents": 0,
+      "overtime_minutes": 330,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-056",
+      "employee_name": "Demo Employee 056",
+      "department": "Finance",
+      "expected_cents": 1902084,
+      "gross_cents": 1902084,
+      "variance_cents": 0,
+      "overtime_minutes": 540,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-057",
+      "employee_name": "Demo Employee 057",
+      "department": "Claims",
+      "expected_cents": 1904335,
+      "gross_cents": 1904335,
+      "variance_cents": 0,
+      "overtime_minutes": 180,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-058",
+      "employee_name": "Demo Employee 058",
+      "department": "Customer Service",
+      "expected_cents": 2024536,
+      "gross_cents": 2024536,
+      "variance_cents": 0,
+      "overtime_minutes": 390,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-059",
+      "employee_name": "Demo Employee 059",
+      "department": "Technology",
+      "expected_cents": 2019664,
+      "gross_cents": 2019664,
+      "variance_cents": 0,
+      "overtime_minutes": 30,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-060",
+      "employee_name": "Demo Employee 060",
+      "department": "Operations",
+      "expected_cents": 2142075,
+      "gross_cents": 2142075,
+      "variance_cents": 0,
+      "overtime_minutes": 240,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-061",
+      "employee_name": "Demo Employee 061",
+      "department": "Human Resources",
+      "expected_cents": 2267925,
+      "gross_cents": 2267925,
+      "variance_cents": 0,
+      "overtime_minutes": 450,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-062",
+      "employee_name": "Demo Employee 062",
+      "department": "Finance",
+      "expected_cents": 2254702,
+      "gross_cents": 2254702,
+      "variance_cents": 0,
+      "overtime_minutes": 90,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-063",
+      "employee_name": "Demo Employee 063",
+      "department": "Claims",
+      "expected_cents": 2382763,
+      "gross_cents": 2382763,
+      "variance_cents": 0,
+      "overtime_minutes": 300,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-064",
+      "employee_name": "Demo Employee 064",
+      "department": "Customer Service",
+      "expected_cents": 2514262,
+      "gross_cents": 2514262,
+      "variance_cents": 0,
+      "overtime_minutes": 510,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-065",
+      "employee_name": "Demo Employee 065",
+      "department": "Technology",
+      "expected_cents": 2492688,
+      "gross_cents": 2492688,
+      "variance_cents": 0,
+      "overtime_minutes": 150,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-066",
+      "employee_name": "Demo Employee 066",
+      "department": "Operations",
+      "expected_cents": 961883,
+      "gross_cents": 961883,
+      "variance_cents": 0,
+      "overtime_minutes": 360,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-067",
+      "employee_name": "Demo Employee 067",
+      "department": "Human Resources",
+      "expected_cents": 997700,
+      "gross_cents": 997700,
+      "variance_cents": 0,
+      "overtime_minutes": 0,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-068",
+      "employee_name": "Demo Employee 068",
+      "department": "Finance",
+      "expected_cents": 1095987,
+      "gross_cents": 1095987,
+      "variance_cents": 0,
+      "overtime_minutes": 210,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-069",
+      "employee_name": "Demo Employee 069",
+      "department": "Claims",
+      "expected_cents": 1197713,
+      "gross_cents": 1197713,
+      "variance_cents": 0,
+      "overtime_minutes": 420,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-070",
+      "employee_name": "Demo Employee 070",
+      "department": "Customer Service",
+      "expected_cents": 1225179,
+      "gross_cents": 1225179,
+      "variance_cents": 0,
+      "overtime_minutes": 60,
+      "status": "matched"
+    },
+    {
+      "employee_id": "EMP-071",
+      "employee_name": "Demo Employee 071",
+      "department": "Technology",
+      "expected_cents": 1329115,
+      "gross_cents": 1329115,
+      "variance_cents": 0,
+      "overtime_minutes": 270,
+      "status": "matched"
+    }
+  ],
+  "sources": [
+    {
+      "name": "employees",
+      "rows": 72,
+      "status": "validated",
+      "path": "snapshots/b74866b93a1e4b22c7a13aaec6b54d7dad3c67117fec152202e5f1ea8b907024/employees.json",
+      "sha256": "eeeb58dd03fc4dff2ff5545dcfd6a017d2f934fcfa06a9a912b90edf8f99fa7d",
+      "type": "Synthetic HR snapshot (JSON)"
+    },
+    {
+      "name": "attendance",
+      "rows": 72,
+      "status": "quarantined",
+      "path": "snapshots/b74866b93a1e4b22c7a13aaec6b54d7dad3c67117fec152202e5f1ea8b907024/attendance.csv",
+      "sha256": "cf727dd68f8a8913f92496b7801d5d50e918cf4003aa1e53052065611802bf05",
+      "type": "Synthetic CSV export"
+    },
+    {
+      "name": "payroll",
+      "rows": 72,
+      "status": "quarantined",
+      "path": "snapshots/b74866b93a1e4b22c7a13aaec6b54d7dad3c67117fec152202e5f1ea8b907024/payroll.csv",
+      "sha256": "8936eacf323ea587506b24870361ca111424b4016a34f8f3805d5b5760dcce7b",
+      "type": "Synthetic CSV export"
+    }
+  ],
+  "run": {
+    "id": "c7646b75-140c-47cc-bc4b-7d7586ebc69d",
+    "period": "2026-09",
+    "scenario": "review",
+    "status": "blocked",
+    "started_at": "2026-10-06T07:10:14.287556+00:00",
+    "duration_ms": 11,
+    "source_hash": "b74866b93a1e4b22c7a13aaec6b54d7dad3c67117fec152202e5f1ea8b907024",
+    "input_rows": 216,
+    "accepted_rows": 211,
+    "rejected_rows": 5,
+    "critical_count": 7,
+    "warning_count": 1,
+    "reused": false
+  }
+}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#142a27">
+  <title>PeopleOps Control · Payroll reconciliation</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to dashboard</a>
+  <aside class="sidebar">
+    <a class="brand" href="#main" aria-label="PeopleOps Control home"><span class="brand-mark">p<span>•</span></span><span>peopleops<small>CONTROL ROOM</small></span></a>
+    <div class="workspace-label">WORKSPACE</div>
+    <nav aria-label="Main navigation">
+      <a class="nav-item active" href="#main"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Overview<span class="nav-dot"></span></a>
+      <a class="nav-item" href="#exceptions"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 10 18H2L12 3Z"/><path d="M12 9v5m0 3v1"/></svg>Quality checks</a>
+      <a class="nav-item" href="#reconciliation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v15H4zM4 10h16M10 10v10"/></svg>Reconciliation</a>
+      <a class="nav-item" href="#runs"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11a8 8 0 1 1 2 7M4 4v7h7m1-4v6l4 2"/></svg>Run history</a>
+    </nav>
+    <div class="sidebar-bottom"><div class="environment"><span class="dot"></span>Local demo environment</div><p>Built for reliable HR data.<br>Designed to show the work.</p><div class="profile"><span class="avatar">PO</span><span>Portfolio project<small>Independent · synthetic data</small></span></div></div>
+  </aside>
+  <div class="page">
+    <header class="topbar"><div class="breadcrumb">Workspace <span>/</span> <strong>Payroll operations</strong></div><span class="demo-pill"><span class="dot"></span>SYNTHETIC DATA</span></header>
+    <main id="main">
+      <div class="heading-row"><div><div class="eyebrow">HR DATA OPERATIONS</div><h1>Payroll, under control<span>.</span></h1><p class="subtitle">From disconnected source files to a reconciled, auditable month.</p></div><div class="heading-stamp"><span class="stamp-icon">✓</span><span>Evidence over assumptions<small>Python · Pandas · SQL · APIs</small></span></div></div>
+      <section class="control-bar" aria-label="Pipeline controls">
+        <div class="control-label"><span class="control-icon" aria-hidden="true">↻</span><div><strong>Monthly reconciliation</strong><small>Choose a period and run the pipeline</small></div></div>
+        <div class="control-inputs"><label for="period">PAYROLL PERIOD<select id="period"><option value="2026-09">September 2026</option><option value="2026-08">August 2026</option><option value="2026-07">July 2026</option></select></label><label for="scenario">SOURCE SCENARIO<select id="scenario"><option value="review">Exceptions to review</option><option value="clean">Clean source data</option><option value="corrected">Corrected source data</option></select></label><button class="primary-button" id="run-button"><span aria-hidden="true">▶</span> Run pipeline</button></div>
+      </section>
+      <div id="feedback" class="feedback" role="status" aria-live="polite" hidden></div>
+      <section class="pipeline-strip" aria-label="Latest pipeline status"><div class="pipeline-title"><span id="run-state" class="status-pill neutral">Loading</span><span id="run-description">Connecting to the local data pipeline…</span></div><a id="report-link" class="text-link" href="#" hidden>Download Excel <span aria-hidden="true">↗</span></a></section>
+      <div class="metric-context" id="metric-context">Latest run metrics</div>
+      <section class="metrics" aria-label="Run metrics">
+        <article class="metric"><div class="metric-label">Employees reconciled<span class="metric-symbol">◎</span></div><strong id="headcount">—</strong><span id="headcount-note" class="metric-note">Validated employee records</span></article>
+        <article class="metric"><div class="metric-label">Reported gross payroll<span class="metric-symbol">₪</span></div><strong id="gross">—</strong><span class="metric-note">ILS · before tax and benefits</span></article>
+        <article class="metric"><div class="metric-label">Net reconciliation variance<span class="metric-symbol">⇄</span></div><strong id="variance">—</strong><span class="metric-note">Reported gross − expected gross</span></article>
+        <article class="metric"><div class="metric-label">Data quality score<span class="metric-symbol">◇</span></div><strong id="quality">—</strong><span id="quality-note" class="metric-note">Source validation and reconciliation</span></article>
+      </section>
+      <div class="overview-grid">
+        <section class="panel department-panel"><div class="panel-heading"><div><h2>Payroll by department</h2><p>Reported gross for the selected run</p></div><span class="quiet-tag">ILS</span></div><div id="department-chart" class="department-chart"><p class="empty-state">Loading department data…</p></div><div class="panel-footer"><span id="department-total">— departments</span><span><span class="legend-dot"></span>Reported gross</span></div></section>
+        <section class="panel sources-panel"><div class="panel-heading"><div><h2>Connected sources</h2><p>Three inputs. One auditable output.</p></div><span class="small-icon" aria-hidden="true">⇆</span></div><div id="sources" class="sources"><p class="empty-state">Loading source data…</p></div><div class="source-path"><span>Extract</span><i>→</i><span>Validate</span><i>→</i><span>Reconcile</span><i>→</i><strong>Publish</strong></div><div class="source-note">Critical findings stop publication. The last good month stays available.</div></section>
+      </div>
+      <section class="panel" id="exceptions"><div class="panel-heading wrap"><div><h2>Quality & exceptions <span id="findings-count" class="count-badge">0</span></h2><p>Every finding has an owner and a next step.</p></div><div class="filters"><div class="segmented" role="group" aria-label="Filter finding severity"><button class="selected" data-severity="all" aria-pressed="true">All</button><button data-severity="critical" aria-pressed="false">Critical</button><button data-severity="warning" aria-pressed="false">Warning</button></div><label class="sr-only" for="rule-filter">Filter finding rule</label><select id="rule-filter" class="compact-select"><option value="all">All rules</option></select></div></div><div id="findings" class="findings"><p class="empty-state">Loading quality findings…</p></div></section>
+      <section class="panel" id="reconciliation"><div class="panel-heading wrap"><div><h2>Employee reconciliation</h2><p>Trace each reported amount back to the expected calculation.</p></div><label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg><span class="sr-only">Search employees or departments</span><input id="employee-search" placeholder="Search employee or department…" type="search"></label></div><div class="table-scroll"><table><thead><tr><th scope="col">EMPLOYEE</th><th scope="col">DEPARTMENT</th><th scope="col" class="number">EXPECTED</th><th scope="col" class="number">REPORTED</th><th scope="col" class="number">VARIANCE</th><th scope="col">STATUS</th></tr></thead><tbody id="records"></tbody></table></div><div class="table-footer"><span id="records-count">Loading records…</span><div class="pagination"><button id="previous-page" aria-label="Previous records page">←</button><span id="page-number">1</span><button id="next-page" aria-label="Next records page">→</button></div></div></section>
+      <div class="bottom-grid"><section class="panel" id="runs"><div class="panel-heading"><div><h2>Run history</h2><p>Immutable evidence. Safe to rerun.</p></div><span class="quiet-tag">AUDIT LOG</span></div><div id="run-history" class="run-history"><p class="empty-state">Loading run history…</p></div></section><section class="panel rule-panel"><div class="panel-heading"><div><h2>A clear calculation contract</h2><p>Small rules. Visible decisions.</p></div></div><div class="formula"><span>EXPECTED GROSS</span><strong>Base salary + overtime</strong><code>overtime minutes × hourly rate × 1.25 ÷ 60</code></div><p>Amounts use integer agorot and decimal rounding. Differences above ₪100 trigger a critical finding; overtime above 30 hours requires review.</p><div class="rule-chips"><span>Idempotent runs</span><span>Quarantined defects</span><span>Last-good publication</span></div><p class="rule-disclaimer">Simplified portfolio rule, not statutory Israeli payroll. No tax, benefits, or payment processing.</p></section></div>
+      <footer><span><strong>peopleops control</strong> · An independent HR data engineering portfolio</span><span>Synthetic employees only · No affiliation with Harel</span></footer>
+    </main>
+  </div>
+</body>
+</html>
